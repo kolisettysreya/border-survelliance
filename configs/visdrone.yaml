@@ -1,0 +1,31 @@
+# configs/visdrone.yaml
+# =====================
+# VisDrone dataset configs for YOLOv8 training
+# Download: https://www.kaggle.com/datasets/kushagrapandya/visdrone-dataset
+# After download, set 'path' below to your local VisDrone folder.
+
+path:  C:\Users\ASUS\OneDrive\Desktop\Border Survelliance\data\VisDrone         # Root path of dataset
+train: VisDrone2019-DET-train/images
+val:   VisDrone2019-DET-val/images
+test:  VisDrone2019-DET-test-dev/images
+
+# Unified class names (mapped from VisDrone originals)
+nc: 5
+names:
+  0: person
+  1: vehicle
+  2: motorcycle
+  3: drone
+  4: animal
+
+# Original VisDrone classes for reference:
+# 0: pedestrian → person
+# 1: people     → person
+# 2: bicycle    → motorcycle
+# 3: car        → vehicle
+# 4: van        → vehicle
+# 5: truck      → vehicle
+# 6: tricycle   → vehicle
+# 7: awning-tricycle → vehicle
+# 8: bus        → vehicle
+# 9: motor      → motorcycle

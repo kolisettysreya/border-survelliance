@@ -1,0 +1,50 @@
+perimeter:
+  lines:
+  - color:
+    - 0
+    - 0
+    - 255
+    direction: both
+    end:
+    - 1453
+    - 19
+    name: LINE_1
+    start:
+    - 23
+    - 26
+  - color:
+    - 0
+    - 165
+    - 255
+    direction: both
+    end:
+    - 1445
+    - 858
+    name: LINE_2
+    start:
+    - 1453
+    - 19
+  - color:
+    - 0
+    - 255
+    - 255
+    direction: both
+    end:
+    - 25
+    - 860
+    name: LINE_3
+    start:
+    - 1445
+    - 858
+  - color:
+    - 255
+    - 0
+    - 255
+    direction: both
+    end:
+    - 27
+    - 24
+    name: LINE_4
+    start:
+    - 25
+    - 860

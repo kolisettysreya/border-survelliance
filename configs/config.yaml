@@ -1,0 +1,72 @@
+# ============================================================
+# config.yaml  —  Perimeter Defense Detection System Config
+# ============================================================
+
+# ── Model Settings ──────────────────────────────────────────
+model:
+  weights: "yolov8n.pt"              # Using standard YOLOv8 nano model
+  confidence: 0.15                   # Detection confidence threshold
+  iou: 0.5                           # NMS IoU threshold
+  device: "cpu"                      # 'cuda' or 'cpu'
+  target_classes:                    # Only detect these unified classes
+    - person
+    - vehicle
+    - car
+    - truck
+    - bus
+    - motorcycle
+    - drone
+    - animal
+
+# ── Class Name Mapping ───────────────────────────────────────
+# Maps YOLO raw class names → unified class names
+class_map:
+  pedestrian:       person
+  people:           person
+  human:            person
+  person:           person
+  car:              vehicle
+  van:              vehicle
+  bus:              vehicle
+  truck:            vehicle
+  motor:            motorcycle
+  motorbike:        motorcycle
+  bicycle:          motorcycle
+  awning-tricycle:  vehicle
+  tricycle:         vehicle
+  uav:              drone
+
+# ── Tracker Settings ─────────────────────────────────────────
+tracker:
+  max_disappeared: 30                # Frames before an ID is deregistered
+  max_distance: 80                   # Max pixel distance for centroid matching
+
+# ── Perimeter Lines ──────────────────────────────────────────
+perimeter:
+  lines:
+    - name: "NORTH FENCE"
+      start: [0, 520]        # y=520 cuts across where cars actually drive
+      end:   [1280, 520]
+      direction: "both"
+      color: [0, 0, 255]
+
+    - name: "EAST GATE"
+      start: [640, 350]
+      end:   [640, 720]
+      direction: "both"
+      color: [0, 165, 255]       # BGR orange
+
+# ── Alert Settings ───────────────────────────────────────────
+alerts:
+  beep: true
+  save_snapshots: true
+  snapshot_dir: "outputs/snapshots"
+  cooldown_seconds: 3                # Seconds between repeated alerts for same object
+  webhook_url: null                  # Optional: POST JSON event to this URL
+
+# ── Logging ──────────────────────────────────────────────────
+logging:
+  output_dir: "outputs/logs"
+
+# ── Output ───────────────────────────────────────────────────
+save_output: true                    # Save annotated video to outputs/
